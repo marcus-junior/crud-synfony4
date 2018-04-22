@@ -1,5 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Categoria::index</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Lista de Categoria</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 p-3">
+           <a href="categoria/new" class="btn btn-primary">Adicionar Categoria</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <th scope="row">{{ categoria.id }}</th>
+                        <td>{{ categoria.descricao| upper }}</td>
+                        <td>
+                            <a href="{{ path('categoria_edit', {'id': categoria.id}) }}">Editar</a>
+                            <a href="{{ path('categoria_delete', {'id': categoria.id}) }}">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

@@ -36,15 +36,19 @@ class CategoriaRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Categoria
+    /**
+     * @param $id
+     * @return Categoria|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneBySomeField($id): ?Categoria
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+                    ->andWhere('c.id = :id')
+                    ->setParameter('id', $id)
+                    ->getQuery()
+                    ->getOneOrNullResult()
         ;
     }
-    */
+
 }

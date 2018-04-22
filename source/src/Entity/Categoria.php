@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoriaRepository")
  */
 class Categoria
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -17,6 +20,7 @@ class Categoria
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=180)
      */
     private $descricao;
